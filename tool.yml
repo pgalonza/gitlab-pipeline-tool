@@ -1,0 +1,14 @@
+---
+access_token: ''
+gitlab_url: https://gitlab.com/
+about_page: https://github.com/pgalonza/gitlab-pipeline-tool
+stands:
+ - develop
+ - test
+ - production
+projects:
+  - name: ''
+    project_id: ''
+    modules:
+      <service-name1>: <name in UI>
+...

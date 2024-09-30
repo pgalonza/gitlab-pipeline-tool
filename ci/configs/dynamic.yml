@@ -1,0 +1,8 @@
+---
+deploy:
+  <repository name>:
+    step1:
+      - <service-name1>
+    step2:
+      - <service name2>
+...

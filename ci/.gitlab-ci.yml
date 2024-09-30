@@ -1,0 +1,19 @@
+---
+Generate pipeline:
+ stage: prepare
+ extends: ''
+ script: python ./generate_pipeline.py
+ artifacts:
+  paths:
+    - temp/dynamic-pipeline.yml
+  expire_in: "1 days"
+
+Child pipeline:
+ stage: trigger
+ extends: ''
+ trigger:
+  include:
+    - artifact: temp/dynamic-pipeline.yml
+      job: Generate pipeline
+  strategy: depend
+...

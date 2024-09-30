@@ -1,0 +1,26 @@
+---
+include:
+    project: ''
+    ref: master
+    files:
+        - ''
+
+stages:
+    - build
+    {%- for stage_number in range(1, stages|lenght + 1) %}
+    - deploy step {{ stage_number }}
+    {%- endfor %}
+
+{% if 'build' in modules -%}
+Build:
+    stage: build
+    extends: ''
+{% endif -%}
+{% if 'service-name1' in modules -%}
+<Service name 1>:
+    stage: deploy step {{ stages['service-name1'] }}
+    extends: ''
+    enviroment: {{ stand }}
+
+{{% endif -%}}
+...
