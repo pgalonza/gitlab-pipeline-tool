@@ -314,7 +314,9 @@ def main():
 
 
 if __name__ == '__main__':
-    os.mkdir('./logs')
+    log_dir = './logs'
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
     log_path = os.path.normpath('logs/tool.log')
     logging.basicConfig(
         level=logging.INFO,
