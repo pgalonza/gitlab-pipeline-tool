@@ -1,7 +1,15 @@
 ---
+.dynamic_pipeline_rules:
+  rules:
+    - if: >
+        $DYNAMIC_PIPELINE == "True"
+        && $CI_PIPELINE_SOURCE == "api"
+      when: on_success
+    - when: never
+
 Generate pipeline:
  stage: prepare
- extends: ''
+ extends: dynamic_pipeline_rules
  script: python ./generate_pipeline.py
  artifacts:
   paths:
@@ -10,7 +18,7 @@ Generate pipeline:
 
 Child pipeline:
  stage: trigger
- extends: ''
+ extends: dynamic_pipeline_rules
  trigger:
   include:
     - artifact: temp/dynamic-pipeline.yml
