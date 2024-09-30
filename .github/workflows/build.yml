@@ -1,0 +1,12 @@
+name: Build hactool
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - feature-integration
+
+jobs:
+  build-workflow:
+    uses: ./.github/workflows/build-jobs.yaml
