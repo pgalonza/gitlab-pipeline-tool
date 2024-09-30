@@ -33,7 +33,6 @@ jobs:
       - run: |
           pyinstaller main.py --noconsole --icon=images/tool_logo.png --distpath dist-${{ matrix.job_name }}
           mkdir dist-${{ matrix.job_name }}/main/configs
-          mkdir dist-${{ matrix.job_name }}/main/logs
           cp tool.yml dist-${{ matrix.job_name }}/main/configs
           cp -r images dist-${{ matrix.job_name }}/main/images
       - uses: actions/upload-artifact@v4
